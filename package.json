@@ -1,0 +1,49 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "A serivce to manage users",
+  "main": "src/index.js",
+  "author": "Amaan Saeed",
+  "license": "MIT",
+  "private": true,
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "db:migrate": "ENV=development knex migrate:latest",
+    "db:seed": "ENV=development knex seed:run",
+    "test": "ENV=test jest ./tests/*.test.ts --verbose --detectOpenHandles",
+    "test:watch": "ENV=test jest --watch --verbose false ./tests/*.test.ts",
+    "dev": "ENV=development nodemon --watch './**/*' --ignore '/tests/*' -e ts,tsx,js,jsx --exec ts-node src/index.ts",
+    "dev:docker": "ENV=docker nodemon --watch './**/*' --ignore '/tests/*' -e ts,tsx,js,jsx --exec ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@types/is-uuid": "^1.0.0",
+    "@types/koa": "^2.0.52",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.0.42",
+    "@types/uuid": "^3.4.6",
+    "dotenv": "^8.2.0",
+    "is-uuid": "^1.0.2",
+    "knex": "^0.20.2",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^7.4.0",
+    "pg": "^7.14.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/jest": "^24.0.25",
+    "@types/supertest": "^2.0.8",
+    "debug": "^4.1.1",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  }
+}
